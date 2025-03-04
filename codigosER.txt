@@ -1,0 +1,34 @@
+<table id='InfoPersonajes'>
+          <tr>
+            <td>Nombre</td>
+            <td>Altura</td>
+            <td>Peso</td>
+            <td>Color de Cabello</td>
+            <td>Color de piel</td>
+            <td>Color de ojos</td>
+            <td>Fecha de nacimiento</td>
+            <td>Género</td>
+            <td>Planeta de nacimiento</td>
+          </tr>
+        </table>
+
+$(document).addEventListener("DOMContentLoaded", function() {Informacion()})
+
+function Informacion() {
+      for (let step = 1; step <= 83; step++) {
+        const {data, loading} = API('https://swapi.dev/api/people/1/');
+        console.log(data.name);
+        let RefTable = document.getElementById("InfoPersonajes");
+        let template = 
+          `<tr><td>${data.name}</td>
+          <td>${data.height}</td>
+          <td>${data.mass}</td>
+          <td>${data.hair_color}</td>
+          <td>${data.skin_color}</td>
+          <td>${data.eye_color}</td>
+          <td>${data.birth_year}</td>
+          <td>${data.gender}</td>
+          <td>${data.homeworld}</td></tr>`;
+        RefTable.innerHTML += template;
+      }
+  }
