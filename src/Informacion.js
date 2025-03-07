@@ -1,39 +1,25 @@
-import {API} from './Fetch';
+export async function loadTable() {
+//Datos---------------------------------------------------------------------
+    const data = await fetch(`https://swapi.dev/api/people/`);
+    const records = await data.json();
 
-export function Informacion() {
-    for (let step = 1; step <= 83; step++) {
-        const {data, loading} = API("https://swapi.dev/api/people/1/");
-        console.log(data.name);
-        
-        let RefTable = document.getElementById('InfoPersonajes');
-        RefTable.insertRow();
-        let cont = String.valueOf(step);
+    let tab = '';
+    
+//Llenado de la tabla-------------------------------------------------------
+    records.results.forEach(async function(result){
+        const homeworld = await fetch(`${result.homeworld}`);
+        const Nhomeworld = await homeworld.json();
 
-        let RefCellTable = RefTable.insertCell(0);
-        RefCellTable.textContent = data.name;
+        tab += `<tr><td>${result.name}</td>
+        <td>${result.height}</td>
+        <td>${result.mass}</td>
+        <td>${result.hair_color}</td>
+        <td>${result.skin_color}</td>
+        <td>${result.eye_color}</td>
+        <td>${result.birth_year}</td>
+        <td>${result.gender}</td>
+        <td>${Nhomeworld.name}</td></tr>`;
 
-        RefCellTable = RefTable.insertCell(1);
-        RefCellTable.textContent = data.height;
-
-        RefCellTable = RefTable.insertCell(2);
-        RefCellTable.textContent = data.mass;
-
-        RefCellTable = RefTable.insertCell(3);
-        RefCellTable.textContent = data.hair_color;
-
-        RefCellTable = RefTable.insertCell(4);
-        RefCellTable.textContent = data.skin_color;
-
-        RefCellTable = RefTable.insertCell(5);
-        RefCellTable.textContent = data.eye_color;
-
-        RefCellTable = RefTable.insertCell(6);
-        RefCellTable.textContent = data.birth_year;
-
-        RefCellTable = RefTable.insertCell(7);
-        RefCellTable.textContent = data.gender;
-
-        RefCellTable = RefTable.insertCell(8);
-        RefCellTable.textContent = data.homeworld;
-    }
+        document.getElementById('body').innerHTML = tab;
+    })
 }
