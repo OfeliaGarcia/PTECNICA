@@ -1,102 +1,39 @@
-import {API} from "./Fetch";
+import {API} from './Fetch';
 
-export async function loadTable() {
-    let i = 1;
-    let tab = "";
-    
-    while(i<84) {
-        const data = await fetch(`https://swapi.dev/api/people/${i.toString()}/`);
-        const records = await data.json();
-
-        let a = records.name;
-        let a2 = records.height;
-        let a3 = records.mass;
-        let a4 = records.hair_color;
-        let a5 = records.skin_color;
-        let a6 = records.eye_color;
-        let a7 = records.birth_year;
-        let a8 = records.gender;
-        let a9 = records.homeworld;
-
-        const hw = await fetch(`${records.homeworld}`);
-        const Nhw = await hw.json();
-    
-        tab += `<tr><td>${a}</td>
-        <td>${a2}</td>
-        <td>${a3}</td>
-        <td>${a4}</td>
-        <td>${a5}</td>
-        <td>${a6}</td>
-        <td>${a7}</td>
-        <td>${a8}</td>
-        <td>${Nhw.name}</td></tr>`;
-
-        i++;
-        if (i==17) {i++;}
+export function Informacion() {
+    for (let step = 1; step <= 83; step++) {
+        const {data, loading} = API("https://swapi.dev/api/people/1/");
+        console.log(data.name);
         
-        document.getElementById('body').innerHTML = tab;
+        let RefTable = document.getElementById('InfoPersonajes');
+        RefTable.insertRow();
+        let cont = String.valueOf(step);
+
+        let RefCellTable = RefTable.insertCell(0);
+        RefCellTable.textContent = data.name;
+
+        RefCellTable = RefTable.insertCell(1);
+        RefCellTable.textContent = data.height;
+
+        RefCellTable = RefTable.insertCell(2);
+        RefCellTable.textContent = data.mass;
+
+        RefCellTable = RefTable.insertCell(3);
+        RefCellTable.textContent = data.hair_color;
+
+        RefCellTable = RefTable.insertCell(4);
+        RefCellTable.textContent = data.skin_color;
+
+        RefCellTable = RefTable.insertCell(5);
+        RefCellTable.textContent = data.eye_color;
+
+        RefCellTable = RefTable.insertCell(6);
+        RefCellTable.textContent = data.birth_year;
+
+        RefCellTable = RefTable.insertCell(7);
+        RefCellTable.textContent = data.gender;
+
+        RefCellTable = RefTable.insertCell(8);
+        RefCellTable.textContent = data.homeworld;
     }
-    
-
-    //console.log(records.count);
-
-    //let tab = "";
-    //records.results.forEach(function(result){
-    //    tab += `<tr>
-    //        <td>${result.name}</td>
-    //        <td>${result.height}</td>
-    //        <td>${result.mass}</td>
-    //        <td>${result.hair_color}</td>
-    //        <td>${result.skin_color}</td>
-    //        <td>${result.eye_color}</td>
-    //        <td>${result.birth_year}</td>
-    //        <td>${result.gender}</td>
-    //        <td>${result.homeworld}</td>`
-    //})
-
-    //document.getElementById('body').innerHTML = tab;
 }
-
-
-//for (let step = 1; step <= 83; step++) {
-//    loadTable(`https://swapi.dev/api/people/${cont}/`, document.querySelector("table"));
-//}
-
-
-//function Informacion() {
-//    for (let step = 1; step <= 83; step++) {
-//        const {data, loading} = API(`https://swapi.dev/api/people/${cont}/`);
-//        console.log(data.name);
-//        
-//        let RefTable = document.getElementById('InfoPersonajes');
-//        RefTable.insertRow();
-//        let cont = String.valueOf(step);
-//
-//        let RefCellTable = RefTable.insertCell(0);
-//        RefCellTable.textContent = data.name;
-//
-//        RefCellTable = RefTable.insertCell(1);
-//        RefCellTable.textContent = data.height;
-
-//        RefCellTable = RefTable.insertCell(2);
-//        RefCellTable.textContent = data.mass;
-
-//        RefCellTable = RefTable.insertCell(3);
-//        RefCellTable.textContent = data.hair_color;
-
-//        RefCellTable = RefTable.insertCell(4);
-//        RefCellTable.textContent = data.skin_color;
-
-//        RefCellTable = RefTable.insertCell(5);
-//        RefCellTable.textContent = data.eye_color;
-
-//        RefCellTable = RefTable.insertCell(6);
-//        RefCellTable.textContent = data.birth_year;
-
-//        RefCellTable = RefTable.insertCell(7);
-//        RefCellTable.textContent = data.gender;
-
-//        RefCellTable = RefTable.insertCell(8);
-//        RefCellTable.textContent = data.homeworld;
-//    }
-//}

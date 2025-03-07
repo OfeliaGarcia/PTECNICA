@@ -1,31 +1,36 @@
+import {API} from './Fetch';
+//import { Informacion } from './Informacion';
 import './App.css';
-import './Busqueda';
-import { loadTable } from './Informacion';
+import './Busqueda'
 
 function App() { 
-  setTimeout(function(){loadTable()}, 50);
+  //for (let cont = 1; cont <= 83; cont++) {
+    const {data, loading} = API('https://swapi.dev/api/people/1/');
+    console.log(data.name);
+  //}
   return (
     <div className="App">
       <header className="Práctica 1"></header>
-        <nav className='BARRA'><section className='NAVEGADOR'>
+      <body>
+        <nav class='BARRA'><section class='NAVEGADOR'>
           <h1>PRÁCTICA TÉCNICA</h1>
-          <input type='text' placeholder='Buscador'></input>
+          <input type='text' placeholder='Buscador' onChange='Busqueda'></input>
         </section></nav>
 
-        <table className="table">
-          <thead><tr>
-            <th>Nombre</th>
-            <th>Altura</th>
-            <th>Peso</th>
-            <th>Color de Cabello</th>
-            <th>Color de piel</th>
-            <th>Color de ojos</th>
-            <th>Fecha de nacimiento</th>
-            <th>Género</th>
-            <th>Planeta de nacimiento</th>
-          </tr></thead>
-          <tbody id="body"></tbody>
-        </table>
+        <ul>
+          {loading && <li>Loading...</li>}
+          <li><dt>{data.name}</dt></li>
+          <dd>Altura: {data.height}</dd>
+          <dd>Peso: {data.mass}</dd>
+          <dd>Color de cabello: {data.hair_color}</dd>
+          <dd>Color de piel: {data.skin_color}</dd>
+          <dd>Color de ojos: {data.eye_color}</dd>
+          <dd>Nacimiento: {data.birth_year}</dd>
+          <dd>Género: {data.gender}</dd>
+          <dd>Planeta de nacimiento: {data.homeworld}</dd>
+        </ul>
+
+      </body>
     </div>
   );
 }
