@@ -12,12 +12,12 @@ export async function List(url){
     let tab = '';
 
     tab = `<ul>
-                <li><dt>${response.results.name}</dt></li>
-                <dd>Películas:</dd>
+                <b><dt>${response.results.name}</dt></b>
+                <b><dd>Películas:</dd></b>
                 <div id="films"></div>
-                <dd>Vehículos:</dd>
+                <b><dd>Vehículos:</dd></b>
                 <div id="vehicles"></div>
-                <dd>Naves espaciales:</dd>
+                <b><dd>Naves espaciales:</dd></b>
                 <div id="Starships"></div>
                </ul>`;
     document.getElementById('Individual').innerHTML = tab;

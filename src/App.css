@@ -108,6 +108,10 @@ tbody {
   border-color: azure;
 }
 
+ul {
+  width: 50%;
+  margin: 0 auto;
+}
 
 th, td {
   padding-right: 30px;
