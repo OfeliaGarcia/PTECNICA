@@ -3,7 +3,7 @@ import './Busqueda';
 import { loadTable } from './Informacion';
 
 function App() { 
-  setTimeout(function(){loadTable()}, 60);
+  setTimeout(function(){loadTable("https://swapi.dev/api/people/")}, 60);
   return (
     <div className="App">
         <nav className='NAV'><section className='Browser'>
@@ -14,6 +14,8 @@ function App() {
         <button disabled className='Prev' onClick='pagP();'>Anterior</button>
         <button className='Next' onClick='pagN();'>Siguiente</button>
 
+        <div id="Individual"></div>
+        
         <table className="table">
           <thead><tr>
             <th>Nombre</th>
