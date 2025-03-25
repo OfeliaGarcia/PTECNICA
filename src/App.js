@@ -1,6 +1,6 @@
 import './App.css';
-import './content/Busqueda';
-import { loadTable } from './content/Informacion';
+import { Browser } from './content/Search';
+import { loadTable } from './content/Information';
 import { useState, useEffect } from 'react';
 
 function App() { 
@@ -17,12 +17,16 @@ function App() {
     fetchData();
   }, [url]); //Ejecución cuando la URL cambia
 
+  async function handleOnChange(event){
+    await Browser(event.currentTarget.value); //Actua cuando cambia el input del buscador
+  }
+
   return (
     <div className="App">
         <nav className='NAV'>
           <section className='Browser'>
             <h1>PRÁCTICA TÉCNICA</h1>
-            <input type='text' placeholder='Buscador'></input>
+            <input id='Search' type='search' placeholder='Buscador' onChange={handleOnChange}></input>
           </section>
         </nav>
 
