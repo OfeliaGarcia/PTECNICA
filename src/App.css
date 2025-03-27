@@ -55,6 +55,12 @@
   font-size: 20px;
 }
 
+input {
+  height: 25px;
+  width: 300px;
+  font-family: 'Courier New', Courier, monospace;
+}
+
 button {
   width: 85px;
   height: 30px;
@@ -128,8 +134,10 @@ td {
   border-color: rgba(167, 185, 221, 0.525);
 }
 
-input {
-  height: 25px;
-  width: 300px;
+p {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  font-size: xx-small;
   font-family: 'Courier New', Courier, monospace;
 }

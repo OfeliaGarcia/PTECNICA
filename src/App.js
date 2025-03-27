@@ -51,6 +51,8 @@ function App() {
           </thead>
           <tbody id="body"></tbody>
         </table>
+    
+    <p>Datos obtenidos de: <a href="https://swapi.dev/" target="_blank">"The Star Wars API"</a></p>
     </div>
   );
 }

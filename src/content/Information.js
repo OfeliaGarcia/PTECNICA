@@ -1,6 +1,6 @@
-import { Links, List } from "./Links.js";
+import { HomeWorld, Links, List } from "./Links.js";
 
-export async function loadTable(url) {
+export async function loadTable(url) {//Carga la tabla normal con los datos paginados de la API
     const records = await Links(url);
     document.getElementById('Individual').innerHTML = ''; //Limpia la lista de personaje elegido
     let tab = '';
@@ -12,7 +12,8 @@ export async function loadTable(url) {
     
 //Carga la tabla de los datos del personaje---------------------------------------------------------------------------------------------------
     records.results.results.forEach(result => {
-        tab += `<tr><td title="Películas, naves y vehículos"><a href="#" onclick="loadCharacter('${result.url}')">${result.name}</a></td>
+        tab += `<tr title="Creado: ${result.created}">
+            <td title="Películas, naves y vehículos"><a href="#" onclick="loadCharacter('${result.url}')">${result.name}</a></td>
             <td>${result.height}</td>
             <td>${result.mass}</td>
             <td>${result.hair_color}</td>
@@ -25,19 +26,12 @@ export async function loadTable(url) {
     });
     document.getElementById('body').innerHTML = tab;
 
-//Carga los nombres de los planetas de origen-------------------------------------------------------------------------------------------------
-    var add = 0;
-    do {
-        const link = document.getElementById(`HW${add}`);
-        const homeworld = await Links(link.title);
-        link.innerHTML = homeworld.results.name;
-        add++; 
-    }while(add<count);
+    await HomeWorld(count);//Carga el nombre del planeta de origen
 
     return {next, prev};
 }
 
-//Llama la funcion para cargar los detalles de los personajes al darles click----------------------------------------------------------------
+//Llama la funcion para cargar los detalles de los personajes al darles click-----------------------------------------------------------------
 window.loadCharacter = async function(url) {
     await List(url);
 };
