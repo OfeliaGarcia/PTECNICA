@@ -1,14 +1,14 @@
 # El codigo de la presente aplicación se desarrolla en los siguientes archivos:
 
-**App.js:** Página donde se desarrolla el codigo a mostrar, conectando con las funciones de carga de los datos.\
+**App.js:** Página donde se desarrolla el codigo a mostrar, conectando con las funciones de carga de los datos.
 
-**App.css:** Estilos de la página.\
+**App.css:** Estilos de la página.
 
-**content:** Carpeta de almacen de las funciones.\
+**content:** Carpeta de almacen de las funciones.
 
-**Information.js**: Carga la tabla con los datos de la API y da links para el funcionamiento del paginado.\
+**Information.js**: Carga la tabla con los datos de la API y da links para el funcionamiento del paginado.
 
-**Links.js:** Presenta 3 funciones de donde se obtienen los datos de la API, obtencion del nombre de los planetas de origen y se carga la lista de personaje especifico seleccionado.\ 
+**Links.js:** Presenta 3 funciones de donde se obtienen los datos de la API, obtencion del nombre de los planetas de origen y se carga la lista de personaje especifico seleccionado.
 
 **Search.js:** Función de busqueda donde los resultados se muestran en la tabla.
 
