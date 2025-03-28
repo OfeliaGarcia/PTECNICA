@@ -1,32 +1,50 @@
+# El codigo de la presente aplicación se desarrolla en los siguientes archivos:
+
+**App.js:** Página donde se desarrolla el codigo a mostrar, conectando con las funciones de carga de los datos.\
+
+**App.css:** Estilos de la página.\
+
+**content:** Carpeta de almacen de las funciones.\
+
+**Information.js**: Carga la tabla con los datos de la API y da links para el funcionamiento del paginado.\
+
+**Links.js:** Presenta 3 funciones de donde se obtienen los datos de la API, obtencion del nombre de los planetas de origen y se carga la lista de personaje especifico seleccionado.\ 
+
+**Search.js:** Función de busqueda donde los resultados se muestran en la tabla.
+
+# Importar proyecto
+
+Selecciona la opción *_Clone_* o *_Download_* y compiamos la URL.
+
+## Con CMD
+ 1. Abrir *_Símbolo de Sistema_*.
+ 2. Dirigirnos a la carpeta donde importaremos el proyecto.
+ 3. Escribe "git clone" seguido de la URL que copiaste y das enter.
+ 4. Comprueba que la descarga se ejecuto correctamente abriendo la carpeta en el *_Explorador de Windows_*.
+## Con  GIT
+ 1. Dirigirte a la carpeta donde importaras el proyecto.
+ 2. Abrir *_Git Bash Here_*
+ 3. Escribe "git clone" seguido de la URL que copiaste y das enter.
+
 # Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
-## Available Scripts
-
-In the project directory, you can run:
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).\
+En el directorio del proyecto, puedes cargar los comandos:
 
 ### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Carga la app en el modo desarrollador, la pagina se actualiza cada que se efectua un cambio en el código.\
+En el navegador abre [http://localhost:3000](http://localhost:3000) para ver la app. Los errores se muestran en la consola.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
 
 ### `npm test`
 
-Launches the test runner in the interactive watch mode.\
+Carga el test runner en el modo interactivo.\
 See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
 ### `npm run build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
+Construye la app para producción en la carpeta ***build***.\
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
 ### `npm run eject`
